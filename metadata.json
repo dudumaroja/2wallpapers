@@ -1,0 +1,8 @@
+{
+  "name": "2 Wallpapers",
+  "description": "Changes the wallpaper based on whether there are open windows or not.",
+  "uuid": "2wallpapers@dudumaroja",
+  "shell-version": ["45", "46", "47", "48", "49"],
+  "settings-schema": "org.gnome.shell.extensions.2wallpapers",
+  "version": 2
+}

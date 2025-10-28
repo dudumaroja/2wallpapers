@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gnome-shell-extensions">
+  <schema id="org.gnome.shell.extensions.2wallpapers" path="/org/gnome/shell/extensions/2wallpapers/">
+    <key name="wallpaper-no-windows" type="s">
+      <default>''</default>
+      <summary>Wallpaper URI when no visible windows are open</summary>
+      <description>The file URI for the wallpaper to use when no visible windows are open.</description>
+    </key>
+    <key name="wallpaper-with-windows" type="s">
+      <default>''</default>
+      <summary>Wallpaper URI when visible windows are open</summary>
+      <description>The file URI for the wallpaper to use when one or more visible windows are open.</description>
+    </key>
+  </schema>
+</schemalist>
