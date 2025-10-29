@@ -3,7 +3,7 @@
 [![GNOME Version](https://img.shields.io/badge/GNOME-45%2B-blue.svg)](https://gnome.org/)
 [![License](https://img.shields.io/badge/License-GPL%20v2%2B-orange.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![GNOME-Extensions](https://img.shields.io/badge/GNOME-Extensions-red.svg)](https://extensions.gnome.org/extension/8748/2-wallpapers/)
-
+[![Kofi](https://img.shields.io/badge/Kofi-tips-green.svg)](https://ko-fi.com/dudumaroja)
 ## Description
 
 Just a proof of concept.. i like the look of blurry and transparent windows.. but i dont like how much gpu they use. so i had i ideia of blurring the wallpaper instead.. almost zero gpu use.. just update the wallpaper on the fly, i have almost zero js skills, just was made for me, and maybe can be useful for you, feel free to use the ideia in your own extension!
