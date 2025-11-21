@@ -21,7 +21,7 @@ export default class TwoWallpapersPreferences extends ExtensionPreferences {
             const row = new Adw.ActionRow({ title });
 
             const button = new Gtk.Button({
-                label: 'Selecionar Imagem',
+                label: 'Select image',
                 hexpand: false,
                 halign: Gtk.Align.END,
             });
@@ -39,14 +39,14 @@ export default class TwoWallpapersPreferences extends ExtensionPreferences {
             const currentUri = settings.get_string(key);
             if (currentUri) {
                 const file = Gio.File.new_for_uri(currentUri);
-                const basename = file.get_basename() || 'Selecionar Imagem';
+                const basename = file.get_basename() || 'Select image';
                 button.set_label(basename);
                 button.set_tooltip_text(basename); // tooltip com nome completo
             }
 
             button.connect('clicked', () => {
                 const dialog = new Gtk.FileChooserNative({
-                    title: 'Selecione uma Imagem',
+                    title: 'Select an image,
                     action: Gtk.FileChooserAction.OPEN,
                     transient_for: window,
                     modal: true,
@@ -57,7 +57,7 @@ export default class TwoWallpapersPreferences extends ExtensionPreferences {
                     if (response === Gtk.ResponseType.ACCEPT) {
                         const uri = dlg.get_file().get_uri();
                         settings.set_string(key, uri || '');
-                        const basename = dlg.get_file().get_basename() || 'Selecionar Imagem';
+                        const basename = dlg.get_file().get_basename() || 'Select image';
                         button.set_label(basename);
                         button.set_tooltip_text(basename); // tooltip atualizado
                     }
