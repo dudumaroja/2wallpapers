@@ -46,7 +46,7 @@ export default class TwoWallpapersPreferences extends ExtensionPreferences {
 
             button.connect('clicked', () => {
                 const dialog = new Gtk.FileChooserNative({
-                    title: 'Select an image,
+                    title: 'Select an image',
                     action: Gtk.FileChooserAction.OPEN,
                     transient_for: window,
                     modal: true,
