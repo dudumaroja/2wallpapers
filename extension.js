@@ -88,6 +88,10 @@ export default class TwoWallpapersExtension extends Extension {
         if (this._windowAddedId) this._currentWs.disconnect(this._windowAddedId);
         if (this._windowRemovedId) this._currentWs.disconnect(this._windowRemovedId);
         this._disconnectFromCurrentWindows();
+        this._connIds.clear();
+        this._currentWs.clear();
+        this._settings.clear();
+        this._backgroundSettings.clear() = null;
         this._connIds = null;
         this._currentWs = null;
         this._settings = null;
