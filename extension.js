@@ -110,34 +110,37 @@ export default class TwoWallpapersExtension extends Extension {
      * Called when the extension is enabled.
      * Initializes settings, connects all signals, and sets initial wallpaper.
      */
-    enable() {
-        // Access GNOME's background settings
-        this._backgroundSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
-        // Load extension's custom settings
-        this._settings = this.getSettings();
-        // Get the currently active workspace
-        this._currentWs = this._wm.get_active_workspace();
-        // Set up window monitoring for current workspace
-        this._connectSignals();
-        // Connect to existing windows in the workspace
-        this._connectToCurrentWindows();
-        // Apply initial wallpaper
-        this._updateBackground();
+enable() {
+    // Access GNOME's background settings
+    // Added delay to prevent conflicst at startup - setTimeout as sugested by user @internauta2000
+    setTimeout(() => {
+    this._backgroundSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.background' });
+    // Load extension's custom settings
+    this._settings = this.getSettings();
+    // Get the currently active workspace
+    this._currentWs = this._wm.get_active_workspace();
+    // Set up window monitoring for current workspace
+    this._connectSignals();
+    // Connect to existing windows in the workspace
+    this._connectToCurrentWindows();
+    // Apply initial wallpaper
+    this._updateBackground();
 
-        // Handle workspace switching
-        this._wsSwitchedId = this._wm.connect('workspace-switched', () => {
-            // Clean up connections from previous workspace
-            this._disconnectFromCurrentWindows();
-            this._currentWs.disconnect(this._windowAddedId);
-            this._currentWs.disconnect(this._windowRemovedId);
-            // Switch to new workspace and reconnect everything
-            this._currentWs = this._wm.get_active_workspace();
-            this._connectSignals();
-            this._connectToCurrentWindows();
-            // Update wallpaper for new workspace
-            this._updateBackground();
-        });
-    }
+    // Handle workspace switching
+    this._wsSwitchedId = this._wm.connect('workspace-switched', () => {
+        // Clean up connections from previous workspace
+        this._disconnectFromCurrentWindows();
+        this._currentWs.disconnect(this._windowAddedId);
+        this._currentWs.disconnect(this._windowRemovedId);
+        // Switch to new workspace and reconnect everything
+        this._currentWs = this._wm.get_active_workspace();
+        this._connectSignals();
+        this._connectToCurrentWindows();
+        // Update wallpaper for new workspace
+        this._updateBackground();
+    });
+                 }, 5000)
+}
 
     /**
      * Called when the extension is disabled.
