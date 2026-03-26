@@ -17,10 +17,10 @@ Ignores minimized windows for intuitive transitions (e.g., Super+D).
 
 ## Features
 
-- Supports GNOME 45-49.
+- Supports GNOME 45-50.
 - Settings dialog for wallpaper selection.
-- Real-time updates on window changes or workspace switches.
-- Image filter (JPEG, PNG, etc.).
+- Real-time updates on window opening, closing or minimizing.
+
 
 ## Requirements
 
